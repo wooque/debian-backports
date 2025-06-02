@@ -17,7 +17,7 @@ cd $(ls -d */ | head -n 1)
 
 export DEBIAN_FRONTEND=noninteractive
 yes | mk-build-deps --install --remove
-EMAIL=backport@debian.org dch --bpo "bookworm backport"
+EMAIL=backport@debian.org dch --bpo "backport"
 dpkg-buildpackage -b -us -uc
 find .. -regextype posix-egrep -regex "../${binaries}.*\.deb" | xargs apt install --no-install-recommends -y
 mv $build_dir/*.deb /build/deb
